@@ -1,16 +1,59 @@
-# React + Vite
+# Lottery 2025
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React Three Fiber를 이용한 온라인 추첨 프로그램
 
-Currently, two official plugins are available:
+## 개발 환경
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18.3.1
+- Vite 6.4.1
+- TypeScript 5.6.3
+- Tailwind CSS 3.4.19
+- React Three Fiber 8.18.0
+- Three.js 0.160.1
+- Package Manager: pnpm
 
-## React Compiler
+## 시작하기
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 의존성 설치
 
-## Expanding the ESLint configuration
+```bash
+pnpm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 개발 서버 실행
+
+```bash
+pnpm dev
+```
+
+### 빌드
+
+```bash
+pnpm build
+```
+
+### 빌드 미리보기
+
+```bash
+pnpm preview
+```
+
+### Lint 실행
+
+```bash
+pnpm lint
+```
+
+## 프로젝트 구조
+
+```
+lottery-2025/
+├── src/
+│   ├── App.tsx          # 메인 앱 컴포넌트
+│   ├── main.tsx         # 앱 진입점
+│   ├── index.css        # 글로벌 스타일 (Tailwind)
+│   └── vite-env.d.ts    # Vite 타입 정의
+├── public/              # 정적 파일
+├── docs/                # 문서
+└── package.json
+```
