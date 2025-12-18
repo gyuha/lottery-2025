@@ -10,10 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^9.93.0",
+    "@react-three/fiber": "^8.15.13",
+    "@tweenjs/tween.js": "^25.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "@react-three/fiber": "^8.15.13",
-    "@react-three/drei": "^9.93.0",
     "three": "^0.160.0"
   },
   "devDependencies": {
