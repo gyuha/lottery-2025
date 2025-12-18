@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Html, TrackballControls } from '@react-three/drei'
+import { Html, Text, TrackballControls } from '@react-three/drei'
 import type { TrackballControls as TrackballControlsImpl } from 'three-stdlib'
-import { Object3D, Vector3 } from 'three'
+import { Object3D, Vector3, Color } from 'three'
 import { Easing, Tween, removeAll as tweenRemoveAll, update as tweenUpdate } from '@tweenjs/tween.js'
 import './index.css'
 
@@ -269,13 +269,60 @@ function PeriodicTableScene({ mode }: { mode: Mode }) {
               }
             }}
           >
-            <Html transform>
-              <div className="element" style={{ backgroundColor: entry.color }}>
-                <div className="number">{entry.index + 1}</div>
-                <div className="symbol">{entry.symbol}</div>
-                <div className="details">{entry.name}<br />{entry.mass}</div>
-              </div>
-            </Html>
+            {/* Background plane */}
+            <mesh>
+              <planeGeometry args={[120, 160]} />
+              <meshBasicMaterial
+                color="#007F7F"
+                transparent
+                opacity={parseFloat(entry.color.match(/[\d.]+\)$/)?.[0].slice(0, -1) || '0.5')}
+              />
+            </mesh>
+
+            {/* Number */}
+            <Text
+              position={[40, 60, 1]}
+              fontSize={12}
+              color="#7FFFFF"
+              anchorX="right"
+              anchorY="top"
+            >
+              {entry.index + 1}
+            </Text>
+
+            {/* Symbol */}
+            <Text
+              position={[0, 20, 1]}
+              fontSize={60}
+              color="#FFFFFF"
+              anchorX="center"
+              anchorY="middle"
+              fontWeight="bold"
+            >
+              {entry.symbol}
+            </Text>
+
+            {/* Name */}
+            <Text
+              position={[0, -55, 1]}
+              fontSize={12}
+              color="#7FFFFF"
+              anchorX="center"
+              anchorY="top"
+            >
+              {entry.name}
+            </Text>
+
+            {/* Mass */}
+            <Text
+              position={[0, -70, 1]}
+              fontSize={12}
+              color="#7FFFFF"
+              anchorX="center"
+              anchorY="top"
+            >
+              {entry.mass}
+            </Text>
           </group>
         ))}
       </group>
